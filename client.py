@@ -35,6 +35,8 @@ def receive_message():
 # Create a pop-up dialog to get the username
 root = Tk()
 root.withdraw()  # Hide the root window
+
+roomIP = simpledialog.askstring("Room IP","Enter your room IP: ")
 username = simpledialog.askstring("Username", "Enter your username:")
 
 # Create the main chat window
@@ -48,8 +50,8 @@ message_text = Text(win, width=50, height=20, wrap=WORD, state="disabled")
 message_text.pack()
 
 # Define text tags for user's messages and other messages
-message_text.tag_configure('user_message', foreground='green')
-message_text.tag_configure('other_message', foreground='blue')
+message_text.tag_configure('user_message', background='green')
+message_text.tag_configure('other_message', background='blue',foreground="white")
 
 message_box = LabelFrame(win, text=f"{username} Message: ")
 message_box.pack()
@@ -64,7 +66,7 @@ send_button.grid(row=0, column=1)
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Define the server address and port to connect to
-server_address = ('127.0.0.1', 12345)  # Replace 'server_ip_address' with the server's IP
+server_address = (roomIP, 12345)
 
 # Connect to the server
 client_socket.connect(server_address)
