@@ -33,8 +33,6 @@ def receive_message():
             break
 
 # Create a pop-up dialog to get the username
-root = Tk()
-root.withdraw()  # Hide the root window
 
 roomIP = simpledialog.askstring("Room IP","Enter your room IP: ")
 username = simpledialog.askstring("Username", "Enter your username:")
@@ -42,6 +40,8 @@ username = simpledialog.askstring("Username", "Enter your username:")
 # Create the main chat window
 win = Tk()
 win.title("Codidodido Chat")
+win.resizable(False,False)
+
 
 greeting_text = ttk.Label(win, text=f"Welcome {username}")
 greeting_text.pack()

@@ -5,7 +5,7 @@ import threading
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Define the server address and port
-server_address = ('0.0.0.0', 12345)  # Use 0.0.0.0 to listen on all available network interfaces
+server_address = ('0.0.0.0', 12946)  # Use 0.0.0.0 to listen on all available network interfaces
 
 # Bind the socket to the server address and port
 server_socket.bind(server_address)
